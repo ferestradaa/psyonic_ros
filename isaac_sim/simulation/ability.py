@@ -16,9 +16,6 @@ class AbilityHand():
     def __init__(self):
         pass
         
-
-
-    
     def import_urdf_to_usd(self, urdf_path: str, usd_output: str) -> str:
 
         importer = _urdf.acquire_urdf_interface()
