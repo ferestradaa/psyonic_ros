@@ -1,6 +1,7 @@
 build/
 install/
 log/
+src/ability_hand.log
 *.pyc
 __pycache__/
 .vscode/
