@@ -19,7 +19,7 @@ def generate_launch_description():
         }.items(),
     )
 
-    return LaunchDescription(
+    return LaunchDescription(   
         [
             DeclareLaunchArgument(
                 "write_thread",

@@ -143,7 +143,7 @@ class AbilityPolicyNode(Node):
         # sends a neutral target once at startup, only to make the driver start
         # publishing feedback, the policy has not run yet at this point
         msg = Digits()
-        msg.reply_mode = 0
+        msg.reply_mode = 1
         msg.data = [0.0] * len(self.HAND_JOINT_ORDER)
         self.target_pub.publish(msg)
 

@@ -19,6 +19,7 @@ class AbilityHandNode(Node, Observer):
         self.declare_parameter("hand_side", "Right")
         self.declare_parameter("js_publisher", False)
         self.declare_parameter("simulated_hand", False)
+        self.declare_parameter("reply_mode", 1)  # 1: Pos, Vel, Touch
 
         # Read Parameters
         self.js_publisher = (
@@ -42,28 +43,34 @@ class AbilityHandNode(Node, Observer):
             .bool_value
         )
 
+        reply_mode = self.get_parameter("reply_mode").get_parameter_value().integer_value
+
         if port and baud:
             self.client = AHSerialClient(
                 write_thread=self.write_thread,
                 port=port,
                 baud_rate=baud,
                 simulated=simulated,
+                reply_mode=reply_mode,
             )
         elif port:
             self.client = AHSerialClient(
                 write_thread=self.write_thread,
                 port=port,
                 simulated=simulated,
+                reply_mode=reply_mode,
             )
         elif baud:
             self.client = AHSerialClient(
                 write_thread=self.write_thread,
                 baud_rate=baud,
                 simulated=simulated,
+                reply_mode=reply_mode,
             )
         else:
             self.client = AHSerialClient(
-                write_thread=self.write_thread, simulated=simulated
+                write_thread=self.write_thread, simulated=simulated,
+                reply_mode=reply_mode,
             )
 
         self.client.hand.add_observer(self)
