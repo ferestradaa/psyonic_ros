@@ -1,77 +1,77 @@
-root@ferestrada:/ws# ros2 run ah_tests analize_ah_node 
-[INFO] [1786965978.325382254] [ability_hand_lockup_diagnostic]: diagnostic ready, target=90.0 deg for all fingers, step=15.0 deg
-[INFO] [1786965978.325706597] [ability_hand_lockup_diagnostic]: waiting for first feedback message
-[INFO] [1786965978.326648128] [ability_hand_lockup_diagnostic]: t=0.00 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
-[INFO] [1786965978.427282766] [ability_hand_lockup_diagnostic]: t=0.10 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
-[INFO] [1786965978.527876506] [ability_hand_lockup_diagnostic]: t=0.20 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
-[INFO] [1786965978.628362106] [ability_hand_lockup_diagnostic]: t=0.30 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
-[INFO] [1786965978.728777275] [ability_hand_lockup_diagnostic]: t=0.40 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965978.829332064] [ability_hand_lockup_diagnostic]: t=0.50 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965978.929768138] [ability_hand_lockup_diagnostic]: t=0.60 cmd=0.0 index=2.6/-0.00A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.030342963] [ability_hand_lockup_diagnostic]: t=0.70 cmd=0.0 index=2.6/-0.00A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.130715213] [ability_hand_lockup_diagnostic]: t=0.80 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/-0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.231261047] [ability_hand_lockup_diagnostic]: t=0.90 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/-0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.332118186] [ability_hand_lockup_diagnostic]: t=1.01 cmd=15.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.432749773] [ability_hand_lockup_diagnostic]: t=1.11 cmd=15.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.533163211] [ability_hand_lockup_diagnostic]: t=1.21 cmd=15.0 index=2.6/-0.00A middle=2.7/-0.00A ring=3.3/0.00A pinky=3.1/-0.00A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.633793301] [ability_hand_lockup_diagnostic]: t=1.31 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.02A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.734199928] [ability_hand_lockup_diagnostic]: t=1.41 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.834740828] [ability_hand_lockup_diagnostic]: t=1.51 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
-[INFO] [1786965979.935187168] [ability_hand_lockup_diagnostic]: t=1.61 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
-[INFO] [1786965980.035648515] [ability_hand_lockup_diagnostic]: t=1.71 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
-[INFO] [1786965980.136083183] [ability_hand_lockup_diagnostic]: t=1.81 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
-[INFO] [1786965980.236855421] [ability_hand_lockup_diagnostic]: t=1.91 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
-[INFO] [1786965980.337316814] [ability_hand_lockup_diagnostic]: t=2.01 cmd=30.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
-[INFO] [1786965980.437849698] [ability_hand_lockup_diagnostic]: t=2.11 cmd=30.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
-[INFO] [1786965980.538208329] [ability_hand_lockup_diagnostic]: t=2.21 cmd=30.0 index=14.9/-0.02A middle=15.0/-0.05A ring=15.0/-0.04A pinky=14.9/-0.07A thumb_flexor=14.6/0.03A thumb_rotator=-1.3/0.01A
-[INFO] [1786965980.638678700] [ability_hand_lockup_diagnostic]: t=2.31 cmd=30.0 index=30.1/-0.02A middle=30.1/-0.05A ring=30.0/-0.04A pinky=30.0/-0.07A thumb_flexor=29.2/0.03A thumb_rotator=-1.2/0.01A
-[INFO] [1786965980.739090108] [ability_hand_lockup_diagnostic]: t=2.41 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.2/0.00A
-[INFO] [1786965980.839867133] [ability_hand_lockup_diagnostic]: t=2.51 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.00A
-[INFO] [1786965980.940263174] [ability_hand_lockup_diagnostic]: t=2.61 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
-[INFO] [1786965981.040854501] [ability_hand_lockup_diagnostic]: t=2.71 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
-[INFO] [1786965981.141294575] [ability_hand_lockup_diagnostic]: t=2.81 cmd=30.0 index=30.1/-0.00A middle=30.1/0.00A ring=30.0/-0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
-[INFO] [1786965981.241825539] [ability_hand_lockup_diagnostic]: t=2.92 cmd=30.0 index=30.1/-0.00A middle=30.1/0.00A ring=30.0/-0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965981.342264795] [ability_hand_lockup_diagnostic]: t=3.02 cmd=45.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.08A thumb_rotator=-1.2/0.00A
-[INFO] [1786965981.442764456] [ability_hand_lockup_diagnostic]: t=3.12 cmd=45.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.08A thumb_rotator=-1.2/0.00A
-[INFO] [1786965981.543322619] [ability_hand_lockup_diagnostic]: t=3.22 cmd=45.0 index=30.1/-0.05A middle=30.1/-0.04A ring=30.0/-0.04A pinky=30.0/-0.03A thumb_flexor=29.2/0.03A thumb_rotator=-1.2/0.00A
-[INFO] [1786965981.643790023] [ability_hand_lockup_diagnostic]: t=3.32 cmd=45.0 index=45.0/-0.05A middle=44.9/-0.04A ring=44.8/-0.04A pinky=44.8/-0.03A thumb_flexor=44.3/0.03A thumb_rotator=-1.2/0.00A
-[INFO] [1786965981.744206217] [ability_hand_lockup_diagnostic]: t=3.42 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.06A thumb_rotator=-1.2/0.01A
-[INFO] [1786965981.844862782] [ability_hand_lockup_diagnostic]: t=3.52 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.06A thumb_rotator=-1.2/0.01A
-[INFO] [1786965981.945313676] [ability_hand_lockup_diagnostic]: t=3.62 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.045824172] [ability_hand_lockup_diagnostic]: t=3.72 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.146426037] [ability_hand_lockup_diagnostic]: t=3.82 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.01A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.246963860] [ability_hand_lockup_diagnostic]: t=3.92 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.01A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.347532238] [ability_hand_lockup_diagnostic]: t=4.02 cmd=60.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.448095442] [ability_hand_lockup_diagnostic]: t=4.12 cmd=60.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.548757494] [ability_hand_lockup_diagnostic]: t=4.22 cmd=60.0 index=45.0/-0.01A middle=44.9/-0.01A ring=44.8/0.01A pinky=44.8/0.06A thumb_flexor=44.3/-0.00A thumb_rotator=-1.2/0.01A
-[INFO] [1786965982.649395595] [ability_hand_lockup_diagnostic]: t=4.32 cmd=60.0 index=59.7/-0.01A middle=59.6/-0.01A ring=59.6/0.01A pinky=59.7/0.06A thumb_flexor=59.5/-0.00A thumb_rotator=-1.3/0.01A
-[INFO] [1786965982.749828043] [ability_hand_lockup_diagnostic]: t=4.42 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965982.850450866] [ability_hand_lockup_diagnostic]: t=4.52 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965982.951237587] [ability_hand_lockup_diagnostic]: t=4.62 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.051835945] [ability_hand_lockup_diagnostic]: t=4.73 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.152337807] [ability_hand_lockup_diagnostic]: t=4.83 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.00A
-[INFO] [1786965983.252872612] [ability_hand_lockup_diagnostic]: t=4.93 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.00A
-[INFO] [1786965983.353519026] [ability_hand_lockup_diagnostic]: t=5.03 cmd=75.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.454256915] [ability_hand_lockup_diagnostic]: t=5.13 cmd=75.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.554798815] [ability_hand_lockup_diagnostic]: t=5.23 cmd=75.0 index=59.7/0.05A middle=59.6/0.08A ring=59.6/0.12A pinky=59.7/0.04A thumb_flexor=59.5/0.23A thumb_rotator=-1.3/0.00A
-[INFO] [1786965983.655456111] [ability_hand_lockup_diagnostic]: t=5.33 cmd=75.0 index=74.3/0.05A middle=74.2/0.08A ring=74.3/0.12A pinky=74.4/0.04A thumb_flexor=74.3/0.23A thumb_rotator=-1.3/0.00A
-[INFO] [1786965983.755926925] [ability_hand_lockup_diagnostic]: t=5.43 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.06A pinky=74.4/0.06A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.856514456] [ability_hand_lockup_diagnostic]: t=5.53 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.06A pinky=74.4/0.06A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965983.956896084] [ability_hand_lockup_diagnostic]: t=5.63 cmd=75.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.057387211] [ability_hand_lockup_diagnostic]: t=5.73 cmd=75.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.157969203] [ability_hand_lockup_diagnostic]: t=5.83 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.258689095] [ability_hand_lockup_diagnostic]: t=5.93 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.359380749] [ability_hand_lockup_diagnostic]: t=6.03 cmd=90.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.460101831] [ability_hand_lockup_diagnostic]: t=6.13 cmd=90.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
-[INFO] [1786965984.560663609] [ability_hand_lockup_diagnostic]: t=6.23 cmd=90.0 index=74.3/0.30A middle=74.2/0.28A ring=74.3/0.29A pinky=74.4/0.28A thumb_flexor=74.3/0.42A thumb_rotator=-1.3/0.00A
-[INFO] [1786965984.661390631] [ability_hand_lockup_diagnostic]: t=6.34 cmd=90.0 index=88.2/0.30A middle=88.1/0.28A ring=88.3/0.29A pinky=88.6/0.28A thumb_flexor=86.3/0.42A thumb_rotator=-1.4/0.00A
-[INFO] [1786965984.762364558] [ability_hand_lockup_diagnostic]: t=6.44 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.65A thumb_rotator=-1.4/0.01A
-[INFO] [1786965984.862904377] [ability_hand_lockup_diagnostic]: t=6.54 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.65A thumb_rotator=-1.5/0.01A
-[INFO] [1786965984.963819522] [ability_hand_lockup_diagnostic]: t=6.64 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.20A pinky=88.6/0.21A thumb_flexor=86.3/0.64A thumb_rotator=-1.5/0.01A
-[INFO] [1786965985.065534303] [ability_hand_lockup_diagnostic]: t=6.74 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.20A pinky=88.6/0.21A thumb_flexor=86.3/0.64A thumb_rotator=-1.4/0.01A
-[INFO] [1786965985.166248005] [ability_hand_lockup_diagnostic]: t=6.84 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.63A thumb_rotator=-1.4/0.00A
-[INFO] [1786965985.267081345] [ability_hand_lockup_diagnostic]: t=6.94 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.63A thumb_rotator=-1.4/0.00A
-root@ferestrada:/ws# 
+    root@ferestrada:/ws# ros2 run ah_tests analize_ah_node 
+    [INFO] [1786965978.325382254] [ability_hand_lockup_diagnostic]: diagnostic ready, target=90.0 deg for all fingers, step=15.0 deg
+    [INFO] [1786965978.325706597] [ability_hand_lockup_diagnostic]: waiting for first feedback message
+    [INFO] [1786965978.326648128] [ability_hand_lockup_diagnostic]: t=0.00 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965978.427282766] [ability_hand_lockup_diagnostic]: t=0.10 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965978.527876506] [ability_hand_lockup_diagnostic]: t=0.20 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965978.628362106] [ability_hand_lockup_diagnostic]: t=0.30 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965978.728777275] [ability_hand_lockup_diagnostic]: t=0.40 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965978.829332064] [ability_hand_lockup_diagnostic]: t=0.50 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965978.929768138] [ability_hand_lockup_diagnostic]: t=0.60 cmd=0.0 index=2.6/-0.00A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.030342963] [ability_hand_lockup_diagnostic]: t=0.70 cmd=0.0 index=2.6/-0.00A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.130715213] [ability_hand_lockup_diagnostic]: t=0.80 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/-0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.231261047] [ability_hand_lockup_diagnostic]: t=0.90 cmd=0.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/-0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.332118186] [ability_hand_lockup_diagnostic]: t=1.01 cmd=15.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.432749773] [ability_hand_lockup_diagnostic]: t=1.11 cmd=15.0 index=2.6/0.01A middle=2.7/0.00A ring=3.3/-0.01A pinky=3.1/0.01A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.533163211] [ability_hand_lockup_diagnostic]: t=1.21 cmd=15.0 index=2.6/-0.00A middle=2.7/-0.00A ring=3.3/0.00A pinky=3.1/-0.00A thumb_flexor=2.1/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.633793301] [ability_hand_lockup_diagnostic]: t=1.31 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.02A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.734199928] [ability_hand_lockup_diagnostic]: t=1.41 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.834740828] [ability_hand_lockup_diagnostic]: t=1.51 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965979.935187168] [ability_hand_lockup_diagnostic]: t=1.61 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965980.035648515] [ability_hand_lockup_diagnostic]: t=1.71 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965980.136083183] [ability_hand_lockup_diagnostic]: t=1.81 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965980.236855421] [ability_hand_lockup_diagnostic]: t=1.91 cmd=15.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965980.337316814] [ability_hand_lockup_diagnostic]: t=2.01 cmd=30.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965980.437849698] [ability_hand_lockup_diagnostic]: t=2.11 cmd=30.0 index=14.9/-0.00A middle=15.0/-0.00A ring=15.0/-0.00A pinky=14.9/-0.00A thumb_flexor=14.6/0.04A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965980.538208329] [ability_hand_lockup_diagnostic]: t=2.21 cmd=30.0 index=14.9/-0.02A middle=15.0/-0.05A ring=15.0/-0.04A pinky=14.9/-0.07A thumb_flexor=14.6/0.03A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965980.638678700] [ability_hand_lockup_diagnostic]: t=2.31 cmd=30.0 index=30.1/-0.02A middle=30.1/-0.05A ring=30.0/-0.04A pinky=30.0/-0.07A thumb_flexor=29.2/0.03A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965980.739090108] [ability_hand_lockup_diagnostic]: t=2.41 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.2/0.00A
+    [INFO] [1786965980.839867133] [ability_hand_lockup_diagnostic]: t=2.51 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.00A
+    [INFO] [1786965980.940263174] [ability_hand_lockup_diagnostic]: t=2.61 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
+    [INFO] [1786965981.040854501] [ability_hand_lockup_diagnostic]: t=2.71 cmd=30.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
+    [INFO] [1786965981.141294575] [ability_hand_lockup_diagnostic]: t=2.81 cmd=30.0 index=30.1/-0.00A middle=30.1/0.00A ring=30.0/-0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.1/0.01A
+    [INFO] [1786965981.241825539] [ability_hand_lockup_diagnostic]: t=2.92 cmd=30.0 index=30.1/-0.00A middle=30.1/0.00A ring=30.0/-0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965981.342264795] [ability_hand_lockup_diagnostic]: t=3.02 cmd=45.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.08A thumb_rotator=-1.2/0.00A
+    [INFO] [1786965981.442764456] [ability_hand_lockup_diagnostic]: t=3.12 cmd=45.0 index=30.1/0.00A middle=30.1/0.00A ring=30.0/0.00A pinky=30.0/-0.00A thumb_flexor=29.2/0.08A thumb_rotator=-1.2/0.00A
+    [INFO] [1786965981.543322619] [ability_hand_lockup_diagnostic]: t=3.22 cmd=45.0 index=30.1/-0.05A middle=30.1/-0.04A ring=30.0/-0.04A pinky=30.0/-0.03A thumb_flexor=29.2/0.03A thumb_rotator=-1.2/0.00A
+    [INFO] [1786965981.643790023] [ability_hand_lockup_diagnostic]: t=3.32 cmd=45.0 index=45.0/-0.05A middle=44.9/-0.04A ring=44.8/-0.04A pinky=44.8/-0.03A thumb_flexor=44.3/0.03A thumb_rotator=-1.2/0.00A
+    [INFO] [1786965981.744206217] [ability_hand_lockup_diagnostic]: t=3.42 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.06A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965981.844862782] [ability_hand_lockup_diagnostic]: t=3.52 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.06A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965981.945313676] [ability_hand_lockup_diagnostic]: t=3.62 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.045824172] [ability_hand_lockup_diagnostic]: t=3.72 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.146426037] [ability_hand_lockup_diagnostic]: t=3.82 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.01A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.246963860] [ability_hand_lockup_diagnostic]: t=3.92 cmd=45.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.01A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.347532238] [ability_hand_lockup_diagnostic]: t=4.02 cmd=60.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.448095442] [ability_hand_lockup_diagnostic]: t=4.12 cmd=60.0 index=45.0/-0.00A middle=44.9/0.01A ring=44.8/0.00A pinky=44.8/0.00A thumb_flexor=44.3/0.07A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.548757494] [ability_hand_lockup_diagnostic]: t=4.22 cmd=60.0 index=45.0/-0.01A middle=44.9/-0.01A ring=44.8/0.01A pinky=44.8/0.06A thumb_flexor=44.3/-0.00A thumb_rotator=-1.2/0.01A
+    [INFO] [1786965982.649395595] [ability_hand_lockup_diagnostic]: t=4.32 cmd=60.0 index=59.7/-0.01A middle=59.6/-0.01A ring=59.6/0.01A pinky=59.7/0.06A thumb_flexor=59.5/-0.00A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965982.749828043] [ability_hand_lockup_diagnostic]: t=4.42 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965982.850450866] [ability_hand_lockup_diagnostic]: t=4.52 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965982.951237587] [ability_hand_lockup_diagnostic]: t=4.62 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.051835945] [ability_hand_lockup_diagnostic]: t=4.73 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.152337807] [ability_hand_lockup_diagnostic]: t=4.83 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965983.252872612] [ability_hand_lockup_diagnostic]: t=4.93 cmd=60.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965983.353519026] [ability_hand_lockup_diagnostic]: t=5.03 cmd=75.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.454256915] [ability_hand_lockup_diagnostic]: t=5.13 cmd=75.0 index=59.7/0.01A middle=59.6/0.02A ring=59.6/0.02A pinky=59.7/0.01A thumb_flexor=59.5/0.05A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.554798815] [ability_hand_lockup_diagnostic]: t=5.23 cmd=75.0 index=59.7/0.05A middle=59.6/0.08A ring=59.6/0.12A pinky=59.7/0.04A thumb_flexor=59.5/0.23A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965983.655456111] [ability_hand_lockup_diagnostic]: t=5.33 cmd=75.0 index=74.3/0.05A middle=74.2/0.08A ring=74.3/0.12A pinky=74.4/0.04A thumb_flexor=74.3/0.23A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965983.755926925] [ability_hand_lockup_diagnostic]: t=5.43 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.06A pinky=74.4/0.06A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.856514456] [ability_hand_lockup_diagnostic]: t=5.53 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.06A pinky=74.4/0.06A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965983.956896084] [ability_hand_lockup_diagnostic]: t=5.63 cmd=75.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.057387211] [ability_hand_lockup_diagnostic]: t=5.73 cmd=75.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.157969203] [ability_hand_lockup_diagnostic]: t=5.83 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.258689095] [ability_hand_lockup_diagnostic]: t=5.93 cmd=75.0 index=74.3/0.07A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.359380749] [ability_hand_lockup_diagnostic]: t=6.03 cmd=90.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.460101831] [ability_hand_lockup_diagnostic]: t=6.13 cmd=90.0 index=74.3/0.06A middle=74.2/0.11A ring=74.3/0.07A pinky=74.4/0.05A thumb_flexor=74.3/0.07A thumb_rotator=-1.3/0.01A
+    [INFO] [1786965984.560663609] [ability_hand_lockup_diagnostic]: t=6.23 cmd=90.0 index=74.3/0.30A middle=74.2/0.28A ring=74.3/0.29A pinky=74.4/0.28A thumb_flexor=74.3/0.42A thumb_rotator=-1.3/0.00A
+    [INFO] [1786965984.661390631] [ability_hand_lockup_diagnostic]: t=6.34 cmd=90.0 index=88.2/0.30A middle=88.1/0.28A ring=88.3/0.29A pinky=88.6/0.28A thumb_flexor=86.3/0.42A thumb_rotator=-1.4/0.00A
+    [INFO] [1786965984.762364558] [ability_hand_lockup_diagnostic]: t=6.44 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.65A thumb_rotator=-1.4/0.01A
+    [INFO] [1786965984.862904377] [ability_hand_lockup_diagnostic]: t=6.54 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.65A thumb_rotator=-1.5/0.01A
+    [INFO] [1786965984.963819522] [ability_hand_lockup_diagnostic]: t=6.64 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.20A pinky=88.6/0.21A thumb_flexor=86.3/0.64A thumb_rotator=-1.5/0.01A
+    [INFO] [1786965985.065534303] [ability_hand_lockup_diagnostic]: t=6.74 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.20A pinky=88.6/0.21A thumb_flexor=86.3/0.64A thumb_rotator=-1.4/0.01A
+    [INFO] [1786965985.166248005] [ability_hand_lockup_diagnostic]: t=6.84 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.63A thumb_rotator=-1.4/0.00A
+    [INFO] [1786965985.267081345] [ability_hand_lockup_diagnostic]: t=6.94 cmd=90.0 index=88.2/0.22A middle=88.1/0.28A ring=88.3/0.19A pinky=88.6/0.20A thumb_flexor=86.3/0.63A thumb_rotator=-1.4/0.00A
+    root@ferestrada:/ws# 
 
 
 
