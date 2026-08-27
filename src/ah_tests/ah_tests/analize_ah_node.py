@@ -14,7 +14,7 @@ NUM_DIGITS = len(FINGER_NAMES)
 # same target for every finger in deg, for some reason pub uses custom and sub uses ffoat multiarray
 # target topic uses ah_messages/msg/Digits, feedback topics use
 # Float32MultiArray confirmed with ros2 topic list -t
-TARGET_DEG = 90.0
+TARGET_DEG = 99.0
 STEP_DEG = 15.0
 HOLD_S = 1.0
 RATE_HZ = 10.0

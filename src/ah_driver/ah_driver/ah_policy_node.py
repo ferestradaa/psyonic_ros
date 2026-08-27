@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
+from sensor_msgs.msg import JointState
 from ah_messages.msg import Digits
 import numpy as np 
 import onnxruntime as ort 
@@ -25,10 +26,12 @@ class AbilityPolicyNode(Node):
         self.last_position = None
         self.last_velocity = None
         self.last_touch = None
+        self.last_mimic_pos = None
 
         self.pos_sub = self.create_subscription(Float32MultiArray, '/ability_hand/right/feedback/position', self.position_feedback_cb, 1)
         self.vel_sub = self.create_subscription(Float32MultiArray, '/ability_hand/right/feedback/velocity', self.velocity_feedback_cb, 1)
         self.touch_sub = self.create_subscription(Float32MultiArray, '/ability_hand/right/feedback/touch', self.touch_feedback_cb, 1)
+        self.joint_state_sub = self.create_subscription(JointState, '/joint_states', self.joint_state_cb, 1)
 
         self.target_pub = self.create_publisher(Digits, '/ability_hand/right/target/position', 1)
 
@@ -36,18 +39,25 @@ class AbilityPolicyNode(Node):
 
         self.HAND_JOINT_ORDER = ["index", "middle", "ring", "pinky", "thumb_flexor", "thumb_rotator"] #real hardware joint order
         self.SIM_JOINT_ORDER = ["index", "middle", "pinky", "ring", "thumb_flexor", "thumb_rotator"] #sim order used in training
+        self.MIMIC_SIM_ORDER = ["index", "middle", "pinky", "ring"] #order of q2 mimic joints matches training's mimic_joint_ids
+
+        # names as published by the driver on /joint_states, q2 is the mimic joint
+        self.MIMIC_JOINT_STATE_NAMES = {
+            "index": "index_q2",
+            "middle": "middle_q2",
+            "pinky": "pinky_q2",
+            "ring": "ring_q2",
+        }
 
         self.JOINT_LOWER_LIMITS_RAD = np.array([0.0, 0.0, 0.0, 0.0, -1.74, 0.0], dtype=np.float32)
         self.JOINT_UPPER_LIMITS_RAD = np.array([1.74, 1.74, 1.74, 1.74, 0.0, 1.74], dtype=np.float32)
-        self.ACTION_SCALE = 0.05 #each step factor (delta) instead of sending raw joint angles idrectly to joints
         self.finger_joint_target_rad= np.zeros(len(self.SIM_JOINT_ORDER), dtype = np.float32) #array to storage joint target
 
-        self.MIMIC_GEARING = -1.0585132837295532    
-        self.cfg_action_scale = 0.05 #scale used in train
+        self.cfg_action_scale = 0.05 #scale used in train, matches action_scale in AbilityIsaaclabEnvCfg
 
         self._seeded = None
 
-        self.contact_thereshold = 0.5
+        self.contact_thereshold = 1.0
 
         self._sent_initial_target = False
 
@@ -62,12 +72,26 @@ class AbilityPolicyNode(Node):
     def touch_feedback_cb(self, msg): 
         self.last_touch = msg.data 
 
+    def joint_state_cb(self, msg):
+        # pulls the real q2 mimic joint positions straight from the driver,
+        # this is the same source of truth training used (PhysX joint_pos on
+        # the mimic joint), instead of approximating q2 from q1 * gearing
+        by_name = dict(zip(msg.name, msg.position))
+        try:
+            self.last_mimic_pos = [
+                by_name[self.MIMIC_JOINT_STATE_NAMES[finger]]
+                for finger in self.MIMIC_SIM_ORDER
+            ]
+        except KeyError:
+            # driver has not published all q2 names yet, keep last good value
+            pass
+
 
 
     def inference_timer(self): 
 
 
-        if self.last_touch is None or self.last_position is None or self.last_velocity is None: 
+        if self.last_touch is None or self.last_position is None or self.last_velocity is None or self.last_mimic_pos is None: 
             self._publish_initial_target()
             return 
 
@@ -75,33 +99,36 @@ class AbilityPolicyNode(Node):
         vel_def_per_sec = self._remap_by_name(self.last_velocity, self.HAND_JOINT_ORDER, self.SIM_JOINT_ORDER)
 
         controlled_pos = np.radians(pos_deg)
-
         controlled_vel = np.radians(vel_def_per_sec)
+
+        # feedback comes in hardware convention (negative = flexed), sim trained in positive
+        # negate rotator position and velocity to match sim convention
+        controlled_pos[-1] *= -1.0
+        controlled_vel[-1] *= -1.0
+
+        mimic_pos = np.array(self.last_mimic_pos, dtype=np.float32)
 
         if not self._seeded: 
             self.finger_joint_target_rad = controlled_pos.copy()
             self._seeded = True
 
-        mimic_pos = [
-            controlled_pos[self.SIM_JOINT_ORDER.index("index")] * self.MIMIC_GEARING, 
-            controlled_pos[self.SIM_JOINT_ORDER.index("middle")] * self.MIMIC_GEARING, 
-            controlled_pos[self.SIM_JOINT_ORDER.index("pinky")] * self.MIMIC_GEARING, 
-            controlled_pos[self.SIM_JOINT_ORDER.index("ring")] * self.MIMIC_GEARING, 
-            
-        ]
-
         fingers_in_contact = self._compute_fingers_in_contact(self.last_touch)
+
+
+        self.get_logger().info(
+            f"rotator feedback: raw_deg={pos_deg[-1]:.4f} after_negate_rad={controlled_pos[-1]:.4f}",
+            throttle_duration_sec=0.5
+        )
 
         obs = np.concatenate([
             controlled_pos,
             controlled_vel,
-            np.array(mimic_pos, dtype=np.float32),
+            mimic_pos,
             np.array(fingers_in_contact, dtype=np.float32),
         ]).astype(np.float32).reshape(1, -1)
 
         raw_output = self.session.run([self.output_name], {self.input_name: obs})[0]
         action = raw_output.reshape(-1) #aplanar the output because it comes as (6,1)
-        self.get_logger().info(f"action: {action}")
 
         finger_delta = action * self.cfg_action_scale #insread of raw angle, uses delta based on current state
         self.finger_joint_target_rad = np.clip(
@@ -111,13 +138,22 @@ class AbilityPolicyNode(Node):
         )        
 
 
+        self.get_logger().info(f"action: {action}", throttle_duration_sec=0.5)
+        self.get_logger().info(f"target_rad: {self.finger_joint_target_rad}", throttle_duration_sec=0.5)
+        self.get_logger().info(f"actual_pos_rad (sim order): {controlled_pos}", throttle_duration_sec=0.5)
+        self.get_logger().info(f"fingers in contact: {fingers_in_contact}", throttle_duration_sec=0.5)
+        
+
         action_deg_sim_oder = np.degrees(self.finger_joint_target_rad)
         action_deg_hand_order = self._remap_by_name(action_deg_sim_oder, self.SIM_JOINT_ORDER, self.HAND_JOINT_ORDER)
+         # convert back to hardware convention before publishing
+        action_deg_hand_order[-1] *= -1.0
 
 
         msg = Digits()
         msg.reply_mode = 1 #pos vel and touch
         msg.data = [float(v) for v in action_deg_hand_order]
+        self.get_logger().info(f"publishing: {msg.data}", throttle_duration_sec=0.5)
         self.target_pub.publish(msg)
 
 
@@ -159,9 +195,3 @@ def main():
 
 if __name__ == '__main__': 
     main()
-
-
-    
-
-
-    
