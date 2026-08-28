@@ -1,9 +1,8 @@
 paths:
- urdf: "assets/urdf/ability_left_small.urdf"
- usd_output: "assets/usd/generated_usd/ability.usd" 
-robot:
- prim_path: "/World/ability_hand"
+ usd_path: "assets/usd/baked_usd/ability_hand_right_small/ability_hand_right_small_baked.usd" 
 
+robot:
+ prim_path: "/World/robot/ability_hand_right_small_baked"
 
 world:
- stage_path: "assets/usd/world.usd"
+ stage_path: "assets/usd/env.usd"

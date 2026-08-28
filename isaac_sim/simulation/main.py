@@ -117,9 +117,8 @@ def main():
         _cfg=yaml.safe_load(f)
 
 
-    URDF_PATH  = os.path.join(ROOT_DIR, _cfg["paths"]["urdf"])
-    USD_OUTPUT = os.path.join(ROOT_DIR, _cfg["paths"]["usd_output"])
-    os.makedirs(os.path.dirname(USD_OUTPUT), exist_ok=True)
+    USD_PATH  = os.path.join(ROOT_DIR, _cfg["paths"]["usd_path"])
+    os.makedirs(os.path.dirname(USD_PATH), exist_ok=True)
 
 
     WORLD_USD_PATH = os.path.join(ROOT_DIR, _cfg["world"]["stage_path"])
@@ -131,15 +130,11 @@ def main():
     ability = AbilityHand()
 
 
-    
 
-    if not os.path.exists(URDF_PATH):
-        raise FileNotFoundError(f"URDF not found at: {URDF_PATH}")
 
-    usd_path = ability.import_urdf_to_usd(URDF_PATH, USD_OUTPUT)
     
     world = setup_world(WORLD_USD_PATH)
-    load_robot(usd_path, ROBOT_PRIM_PATH)
+    load_robot(USD_PATH, ROBOT_PRIM_PATH)
     simulation_app.update()
 
     
@@ -147,14 +142,14 @@ def main():
     world.reset()
 
 
+
+    
+    '''
     art = Articulation(ROBOT_PRIM_PATH)
     art.initialize()
     dof_names = art.dof_names
 
     # set explicit gains before physics has a chance to drive to default target
-    kp = np.full((1, len(dof_names)), 1000.0)
-    kd = np.full((1, len(dof_names)), 100.0)
-    art.set_gains(kps=kp, kds=kd)
 
     current_pos = art.get_joint_positions()
     hold_action = ArticulationActions(
@@ -163,7 +158,7 @@ def main():
     )
     art.apply_action(hold_action)
 
-    '''
+    
 
     limits = art.get_dof_limits()
     lower = limits[0, :, 0]
