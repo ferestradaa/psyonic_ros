@@ -59,11 +59,11 @@ class ValidationPipeline:
         now_ns: int,
     ) -> np.ndarray:
         """
-        Args:
+        intpus
             pos_deg_hw_order: joint positions in degrees, hardware order
-            vel_deg_hw_order: joint velocities in deg/s, hardware order
+            vel_deg_hw_order: joint velocities in deg, hardware order
             touch_raw:        30 floats from touch sensors, hardware order
-            now_ns:           current time in nanoseconds (ROS clock)
+            now_ns:           current time in nanoseconds by ros clock 
 
         Returns:
             target_deg_hw_order: joint targets in degrees, hardware order
@@ -75,8 +75,8 @@ class ValidationPipeline:
         controlled_pos = np.radians(remap(pos_deg_hw_order, HAND_JOINT_ORDER, SIM_JOINT_ORDER))
         controlled_vel = np.radians(remap(vel_deg_hw_order, HAND_JOINT_ORDER, SIM_JOINT_ORDER))
 
-        # hardware convention flip for rotator
-        controlled_pos[-1] *= -1.0
+        
+        controlled_pos[-1] *= -1.0 #hardware convention flip for rotator
         controlled_vel[-2] *= -1.0
 
         mimic_pos = controlled_pos[:4] * MIMIC_GEARING

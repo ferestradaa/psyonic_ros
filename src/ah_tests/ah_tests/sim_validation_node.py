@@ -32,6 +32,8 @@ class SimValidationNode(Node):
 
         self.get_logger().info("sim validation node ready")
 
+        self.debug = False
+
     def _feedback_cb(self, msg: JointState):
         # extract only the 6 controlled joints by name, in HAND_JOINT_ORDER
         name_to_pos = dict(zip(msg.name, msg.position))
@@ -69,10 +71,12 @@ class SimValidationNode(Node):
         )
 
 
-        self.get_logger().info(
-            f"target={np.round(target_deg, 2)} actual_rad={np.round(actual_rad, 3)}",
-            throttle_duration_sec=0.25,
-        )
+        if self.debug: 
+            self.get_logger().info(
+                f"target={np.round(target_deg, 2)} actual_rad={np.round(actual_rad, 3)}",
+                throttle_duration_sec=0.25,
+            )
+            
         sim_by_name = dict(zip(SIM_JOINT_ORDER, target_deg_sim))
         usd_deg = [sim_by_name[n] for n in ["index", "middle", "ring", "pinky", "thumb_flexor", "thumb_rotator"]]
         usd_rad = np.radians(np.array(usd_deg, dtype=np.float32))

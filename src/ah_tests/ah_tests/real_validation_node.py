@@ -11,7 +11,7 @@ CONTROL_HZ = 60.0
 
 class RealValidationNode(Node):
     def __init__(self):
-        super().__init__("ah_validation_real")
+        super().__init__("real_validation_node")
 
         self.pipeline = ValidationPipeline()
 
@@ -27,6 +27,8 @@ class RealValidationNode(Node):
         self.create_timer(1.0 / CONTROL_HZ, self._loop)
         self.get_logger().info("real validation node ready")
 
+        self.debug = False
+
     def _pos_cb(self, msg):   self.last_position = np.array(msg.data, dtype=np.float32)
     def _vel_cb(self, msg):   self.last_velocity = np.array(msg.data, dtype=np.float32)
     def _touch_cb(self, msg): self.last_touch    = np.array(msg.data, dtype=np.float32)
@@ -36,17 +38,18 @@ class RealValidationNode(Node):
             self._pub_zeros()
             return
 
-        target_deg, actual_rad, mimic, contact = self.pipeline.step(
+        target_deg, actual_rad, mimic, contact, _ = self.pipeline.step(
             self.last_position,
             self.last_velocity,
             self.last_touch,
             self.get_clock().now().nanoseconds,
         )
 
-        self.get_logger().info(
-            f"target={np.round(target_deg, 2)} actual_rad={np.round(actual_rad, 3)} contact={contact}",
-            throttle_duration_sec=0.25,
-        )
+        if self.debug: 
+            self.get_logger().info(
+                f"target={np.round(target_deg, 2)} actual_rad={np.round(actual_rad, 3)} contact={contact}",
+                throttle_duration_sec=0.25,
+            )
 
         msg = Digits()
         msg.reply_mode = 1
