@@ -1,8 +1,13 @@
 paths:
- usd_path: "assets/usd/baked_usd/ability_hand_right_small/ability_hand_right_small_baked.usd" 
+  usd_path: "assets/usd/baked_usd/ability_hand_right_small/ability_hand_right_small_baked.usd"
 
 robot:
- prim_path: "/World/robot/ability_hand_right_small_baked"
+  prim_path: "/World/robot/ability_hand_right_small_baked"
+  articulation_root: "/World/robot/ability_hand_right_small_baked/root_joint"
 
 world:
- stage_path: "assets/usd/env.usd"
+  stage_path: "assets/usd/env.usd"
+
+ros2:
+  graph_path: "/World/ActionGraph/ROS2"
+  use_domain_id_env_var: true

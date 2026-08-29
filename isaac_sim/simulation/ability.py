@@ -1,54 +1,74 @@
-from isaacsim.core.utils.types import ArticulationAction
-import numpy as np
-from isaacsim.asset.importer.urdf import _urdf
-import os
-import omni.usd as _usd
-import omni.kit.commands
-from pxr import UsdGeom, Gf
-import omni.replicator.core as rep
-import omni.usd
 import omni.graph.core as og
-from pxr import UsdPhysics
-from pxr import PhysxSchema
 
 
-class AbilityHand():
-    def __init__(self):
-        pass
-        
-    def import_urdf_to_usd(self, urdf_path: str, usd_output: str) -> str:
+HAND_JOINT_ORDER = ["index", "middle", "ring", "pinky", "thumb_flexor", "thumb_rotator"]
+SIM_JOINT_ORDER  = ["index", "middle", "pinky", "ring", "thumb_flexor", "thumb_rotator"]
+CONTROLLED_JOINT_NAMES = [
+    "index_q1", "middle_q1", "pinky_q1", "ring_q1", "thumb_q1", "thumb_q2",
+]
 
-        importer = _urdf.acquire_urdf_interface()
-        config   = _urdf.ImportConfig()
 
-        config.set_fix_base(True)
-        config.set_merge_fixed_joints(False)
-        config.set_self_collision(False)
-        config.set_import_inertia_tensor(True)
-        config.set_create_physics_scene(False)
-        config.set_default_drive_type(2)           # velocity drive
-        config.set_default_drive_strength(10.0)
-        config.set_default_position_drive_damping(0.0)
-        config.set_distance_scale(1.0)
-        config.set_density(0.0)
-        config.set_convex_decomp(False)
-        config.set_make_default_prim(True)
+class AbilityHand:
+    def __init__(self, robot_prim_path: str, articulation_root: str, graph_path: str):
+        self.robot_prim_path  = robot_prim_path
+        self.articulation_root = articulation_root
+        self.graph_path        = graph_path
+        self._og_controller    = og.Controller()
 
-        urdf_dir      = os.path.dirname(os.path.abspath(urdf_path))
-        urdf_filename = os.path.basename(urdf_path)
+    def setup_ros2_graph(self, update_callback) -> bool:
+        nodes = [
+            ("OnPlaybackTick",         "omni.graph.action.OnPlaybackTick"),
+            ("ReadSimTime",            "isaacsim.core.nodes.IsaacReadSimulationTime"),
+            ("ROS2Context",            "isaacsim.ros2.bridge.ROS2Context"),
+            ("PublishClock",           "isaacsim.ros2.bridge.ROS2PublishClock"),
+            ("PublishJointState",      "isaacsim.ros2.bridge.ROS2PublishJointState"),
+            ("SubscribeJointState",    "isaacsim.ros2.bridge.ROS2SubscribeJointState"),
+            ("ArticulationController", "isaacsim.core.nodes.IsaacArticulationController"),
+        ]
 
-        parsed = importer.parse_urdf(urdf_dir, urdf_filename, config)
-        result = importer.import_robot(urdf_dir, urdf_filename, parsed, config, usd_output)
+        connect = [
+            ("OnPlaybackTick.outputs:tick",                 "PublishJointState.inputs:execIn"),
+            ("OnPlaybackTick.outputs:tick",                 "SubscribeJointState.inputs:execIn"),
+            ("OnPlaybackTick.outputs:tick",                 "PublishClock.inputs:execIn"),
+            ("ReadSimTime.outputs:simulationTime",          "PublishJointState.inputs:timeStamp"),
+            ("ReadSimTime.outputs:simulationTime",          "PublishClock.inputs:timeStamp"),
+            ("ROS2Context.outputs:context",                 "PublishJointState.inputs:context"),
+            ("ROS2Context.outputs:context",                 "SubscribeJointState.inputs:context"),
+            ("ROS2Context.outputs:context",                 "PublishClock.inputs:context"),
+            ("SubscribeJointState.outputs:execOut",         "ArticulationController.inputs:execIn"),
+            ("SubscribeJointState.outputs:positionCommand", "ArticulationController.inputs:positionCommand"),
+            ("SubscribeJointState.outputs:velocityCommand", "ArticulationController.inputs:velocityCommand"),
+            ("SubscribeJointState.outputs:effortCommand",   "ArticulationController.inputs:effortCommand"),
+        ]
 
-        if not result:
-            raise RuntimeError(f"failed import_robot: {urdf_path}")
-        from pxr import Usd, UsdGeom
-        stage = Usd.Stage.Open(usd_output)
-        #UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.z)
-        UsdGeom.SetStageMetersPerUnit(stage, 1.0)
-        stage.GetRootLayer().Save()
+        graph, _, _, _ = self._og_controller.edit(
+            {"graph_path": self.graph_path, "evaluator_name": "execution"},
+            {
+                og.Controller.Keys.CREATE_NODES: nodes,
+                og.Controller.Keys.CONNECT:      connect,
+            },
+        )
 
-        print(f"[sim] URDF imported as {usd_output}  (prim root: {result})")
-        return usd_output
+        if not graph or not graph.is_valid():
+            print("[AbilityHand] ERROR: graph node creation failed")
+            return False
 
-        
+        update_callback()
+
+        set_values = [
+            ("ROS2Context.inputs:useDomainIDEnvVar",     True),
+            ("PublishClock.inputs:topicName",            "clock"),
+            ("PublishJointState.inputs:topicName",       "ability_hand/right/feedback/position"),
+            ("PublishJointState.inputs:targetPrim",      [self.articulation_root]),
+            ("SubscribeJointState.inputs:topicName",     "ability_hand/right/target/position"),
+            ("ArticulationController.inputs:robotPath",  self.articulation_root),
+            ("ArticulationController.inputs:targetPrim", [self.articulation_root]),
+        ]
+
+        _, _, _, _ = self._og_controller.edit(
+            graph,
+            {og.Controller.Keys.SET_VALUES: set_values},
+        )
+
+        print("[AbilityHand] ROS2 graph OK")
+        return True

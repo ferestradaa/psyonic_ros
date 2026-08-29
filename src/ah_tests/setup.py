@@ -25,6 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             "analize_ah_node = ah_tests.analize_ah_node:main", 
+            "sim_validation_node = ah_tests.sim_validation_node:main", 
+            "real_validation_node = ah_tests.real_validation_node: main", 
         ],
     },
 )
