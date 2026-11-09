@@ -21,7 +21,7 @@ def inspect_usd() -> None:
     if not stage:
         raise RuntimeError("No stage open in Isaac Sim")
 
-    root_path = "/ability_hand_right_small"
+    root_path = "/ability_hand"
     root_prim = stage.GetPrimAtPath(root_path)
     if not root_prim.IsValid():
         raise RuntimeError(f"Prim not found: {root_path}")
@@ -60,6 +60,13 @@ def inspect_usd() -> None:
         print(f"    body0 : {body0}")
         print(f"    body1 : {body1}")
         print(f"    axis  : {axis_attr.Get() if axis_attr else 'N/A'}")
+
+        # joint local frames relative to each body, these determine the physical
+        # rotation direction of the axis independent of the limit values
+        print(f"    localPos0 : {p.GetAttribute('physics:localPos0').Get()}")
+        print(f"    localPos1 : {p.GetAttribute('physics:localPos1').Get()}")
+        print(f"    localRot0 : {p.GetAttribute('physics:localRot0').Get()}")
+        print(f"    localRot1 : {p.GetAttribute('physics:localRot1').Get()}")
 
         for axis_token in ["angular", "linear"]:
             if p.HasAPI(UsdPhysics.LimitAPI, axis_token):
