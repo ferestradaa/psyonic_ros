@@ -104,7 +104,7 @@ class AbilityPolicyNode(Node):
         # feedback comes in hardware convention (negative = flexed), sim trained in positive
         # negate rotator position and velocity to match sim convention
         controlled_pos[-1] *= -1.0
-        controlled_vel[-1] *= -1.0
+        controlled_vel[-2] *= -1.0
 
         mimic_pos = np.array(self.last_mimic_pos, dtype=np.float32)
 
@@ -148,6 +148,7 @@ class AbilityPolicyNode(Node):
         action_deg_hand_order = self._remap_by_name(action_deg_sim_oder, self.SIM_JOINT_ORDER, self.HAND_JOINT_ORDER)
          # convert back to hardware convention before publishing
         action_deg_hand_order[-1] *= -1.0
+        action_deg_hand_order[-2] *= -1.0
 
 
         msg = Digits()
